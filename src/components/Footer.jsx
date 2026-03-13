@@ -21,4 +21,4 @@ export default function Footer() {
   );
 }
 
-// @trigger-coderabbit
+
