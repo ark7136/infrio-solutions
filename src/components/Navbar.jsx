@@ -7,6 +7,7 @@ export default function Navbar() {
   const location = useLocation();
 
   const navItems = [
+    { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'IT & Software', path: '/it-software' },
     { name: 'Graphic Design', path: '/graphic-design' },
@@ -15,8 +16,8 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 px-8 py-2 flex justify-between items-center bg-dark/80 backdrop-blur-md border-b border-white/5 text-white">
-      <Link to="/" className="block w-16 md:w-24 transform transition-transform hover:scale-105">
-        <img alt="Infrio Solutions Logo" className="w-full h-auto object-contain" src="/logo.png" />
+      <Link to="/" className="block h-10 md:h-12 w-auto transform transition-transform hover:scale-105">
+        <img alt="Infrio Solutions Logo" className="h-full w-auto object-contain" src="/logo.png" />
       </Link>
       
       <div className="hidden md:flex space-x-12 text-sm font-medium tracking-widest uppercase">
