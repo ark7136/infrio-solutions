@@ -34,7 +34,7 @@ const services = [
 
 export default function GraphicDesign() {
   return (
-    <div className="w-full pt-24 pb-24">
+    <div className="w-full pt-32 pb-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <h1 className="font-display text-4xl md:text-6xl font-bold leading-none tracking-tighter mb-8 text-gradient uppercase">
@@ -81,4 +81,5 @@ export default function GraphicDesign() {
     </div>
   );
 }
+
 

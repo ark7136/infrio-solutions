@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Contact() {
   return (
-    <div className="w-full pt-24 pb-24 min-h-screen flex flex-col justify-center">
+    <div className="w-full pt-32 pb-24 min-h-screen flex flex-col justify-center">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           
@@ -71,6 +71,7 @@ export default function Contact() {
     </div>
   );
 }
+
 
 
 
