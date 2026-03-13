@@ -14,8 +14,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-8 py-3 flex justify-between items-center bg-dark/60 backdrop-blur-md border-b border-white/5 text-white">
-      <Link to="/" className="block w-20 md:w-28 drop-shadow-lg transform transition-transform hover:scale-105">
+    <nav className="fixed top-0 left-0 w-full z-50 px-8 py-2 flex justify-between items-center bg-dark/80 backdrop-blur-md border-b border-white/5 text-white">
+      <Link to="/" className="block w-16 md:w-24 transform transition-transform hover:scale-105">
         <img alt="Infrio Solutions Logo" className="w-full h-auto object-contain" src="/logo.png" />
       </Link>
       
