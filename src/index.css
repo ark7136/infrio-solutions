@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-kinetic: #f97316;
+  --color-dark: #0a0a0a;
+  --color-surface: #121212;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Syncopate', sans-serif;
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(to bottom right, #fff 30%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .parallax-sculpt {
+    transition: transform 0.1s ease-out;
+  }
+}
+
+body {
+  background-color: var(--color-dark);
+  color: white;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-kinetic);
+  color: var(--color-dark);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
