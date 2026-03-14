@@ -15,9 +15,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-8 py-2 flex justify-between items-center bg-dark/80 backdrop-blur-md border-b border-white/5 text-white">
-      <Link to="/" className="block transform transition-transform hover:scale-105">
-        <img alt="Infrio Solutions Logo" className="h-32 w-auto object-contain" src="/logo.png" />
+    <nav className="fixed top-0 left-0 w-full z-50 px-8 h-20 flex justify-between items-center bg-dark/80 backdrop-blur-md border-b border-white/5 text-white">
+      <Link to="/" className="relative z-10 block transform transition-transform hover:scale-105">
+        <img 
+          alt="Infrio Solutions Logo" 
+          className="h-32 w-auto object-contain drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" 
+          src="/logo.png" 
+        />
       </Link>
       
       <div className="hidden md:flex space-x-12 text-sm font-medium tracking-widest uppercase">
