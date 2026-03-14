@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import CTAButton from '../components/CTAButton';
 
 const services = [
   {
@@ -34,7 +34,7 @@ const services = [
 
 export default function GraphicDesign() {
   return (
-    <div className="w-full pt-32 pb-24">
+    <div className="w-full pt-48 pb-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <h1 className="font-display text-4xl md:text-6xl font-bold leading-none tracking-tighter mb-8 text-gradient uppercase">
@@ -49,7 +49,7 @@ export default function GraphicDesign() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
           {services.map((svc) => (
             <div key={svc.num} className="relative rounded-2xl overflow-hidden border border-white/10 bg-surface group hover:border-kinetic/50 transition-colors duration-700">
-              <div className="absolute inset-0 bg-gradient-to-tr from-kinetic/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-tr from-kinetic/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
               <div className="p-8 md:p-10 flex flex-col h-full">
                 <div className="w-14 h-14 rounded-2xl bg-kinetic/10 border border-kinetic/20 flex items-center justify-center mb-6 group-hover:bg-kinetic/20 transition-colors">
                   <svg className="w-7 h-7 text-kinetic" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,7 +62,7 @@ export default function GraphicDesign() {
                 <ul className="space-y-2 mt-auto">
                   {svc.bullets.map(b => (
                     <li key={b} className="flex items-center gap-2 text-xs text-gray-500 uppercase tracking-widest">
-                      <span className="w-1.5 h-1.5 bg-kinetic rounded-full inline-block flex-shrink-0"></span>{b}
+                      <span className="w-1.5 h-1.5 bg-kinetic rounded-full inline-block shrink-0"></span>{b}
                     </li>
                   ))}
                 </ul>
@@ -73,13 +73,9 @@ export default function GraphicDesign() {
 
         <div className="text-center mt-20">
           <h2 className="font-display text-3xl md:text-5xl font-bold uppercase mb-8">Elevate Your Visuals</h2>
-          <Link to="/contact" className="inline-block px-10 py-4 border border-kinetic text-kinetic uppercase tracking-[0.2em] text-xs font-bold hover:bg-kinetic hover:text-dark transition-all duration-500 rounded-full">
-            Start a Design Project
-          </Link>
+          <CTAButton to="/contact">Start a Design Project</CTAButton>
         </div>
       </div>
     </div>
   );
 }
-
-

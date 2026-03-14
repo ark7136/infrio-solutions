@@ -1,12 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import CTAButton from '../components/CTAButton';
 
 export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark pointer-events-none"></div>
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden pt-[120px]">
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-dark pointer-events-none"></div>
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h1 className="font-display text-5xl md:text-8xl lg:text-[7.5rem] font-bold leading-none tracking-tighter mb-8 text-gradient uppercase">
             Infrio<br/>Solutions
@@ -15,19 +15,17 @@ export default function Home() {
             Empowering businesses with modern IT services, high-performance software development, and visually striking graphic design.
           </p>
           <div className="mt-12">
-            <a href="#vision" className="inline-block px-10 py-4 border border-kinetic text-kinetic uppercase tracking-[0.2em] text-xs font-bold hover:bg-kinetic hover:text-dark transition-all duration-500 rounded-full">
-              Explore the Ecosystem
-            </a>
+            <CTAButton>Explore the Ecosystem</CTAButton>
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-40">
           <span className="text-[10px] uppercase tracking-[0.3em] mb-2 pointer-events-none">Scroll</span>
-          <div className="w-px h-16 bg-gradient-to-b from-kinetic to-transparent pointer-events-none"></div>
+          <div className="w-px h-16 bg-linear-to-b from-kinetic to-transparent pointer-events-none"></div>
         </div>
       </section>
 
       {/* Vision Section */}
-      <section id="vision" className="relative py-32 md:py-64 overflow-hidden bg-dark">
+      <section id="vision" className="relative py-32 md:py-48 overflow-hidden bg-dark">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="parallax-sculpt">
@@ -57,7 +55,7 @@ export default function Home() {
               <div className="absolute -inset-4 bg-kinetic/20 rounded-xl blur-2xl group-hover:bg-kinetic/30 transition duration-1000 pointer-events-none"></div>
               <div className="relative glass-morphism rounded-2xl p-4 overflow-hidden aspect-square flex items-center justify-center">
                 <div className="w-full h-full border border-white/10 rounded-lg flex items-center justify-center bg-black/50 overflow-hidden pointer-events-none">
-                  <div className="relative w-48 h-48 border-[2px] border-kinetic/50 rounded-full flex items-center justify-center animate-spin" style={{ animationDuration: '20s' }}>
+                  <div className="relative w-48 h-48 border-2 border-kinetic/50 rounded-full flex items-center justify-center animate-spin" style={{ animationDuration: '20s' }}>
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-kinetic rounded-full shadow-[0_0_15px_#f97316]"></div>
                   </div>
                   <div className="absolute font-display text-7xl md:text-8xl opacity-10">INFRIO</div>
@@ -73,7 +71,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div>
-              <h3 className="text-xs uppercase tracking-[0.5em] text-kinetic mb-4">Our Expertise</h3>
+              <p className="text-xs uppercase tracking-[0.5em] text-kinetic mb-4">Our Expertise</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold uppercase">End-to-End<br/>Solutions</h2>
             </div>
             <div className="max-w-md text-gray-500 text-sm leading-relaxed uppercase tracking-widest">
@@ -110,16 +108,14 @@ export default function Home() {
       </section>
       
       {/* Contact CTA */}
-      <section className="py-48 relative overflow-hidden" id="contact-cta">
+      <section className="py-32 md:py-48 relative overflow-hidden" id="contact-cta">
         <div className="absolute inset-0 bg-kinetic/5 opacity-30 pointer-events-none"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="font-display text-5xl md:text-7xl font-bold uppercase mb-12 tracking-tighter">
             Get In <br/> <span className="text-kinetic italic">Touch</span>
           </h2>
           <div className="mt-12">
-            <Link to="/contact" className="inline-block px-10 py-4 border border-kinetic text-kinetic uppercase tracking-[0.2em] text-xs font-bold hover:bg-kinetic hover:text-dark transition-all duration-500 rounded-full">
-              Contact Us
-            </Link>
+            <CTAButton to="/contact">Contact Us</CTAButton>
           </div>
         </div>
       </section>

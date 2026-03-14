@@ -1,4 +1,34 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+
+function createParticle(width, height) {
+  return {
+    x: Math.random() * width,
+    y: Math.random() * height,
+    vx: (Math.random() - 0.5) * 1.5,
+    vy: (Math.random() - 0.5) * 1.5,
+    size: Math.random() * 2 + 1,
+    opacity: Math.random() * 0.5,
+  };
+}
+
+function updateParticle(p, width, height) {
+  p.x += p.vx;
+  p.y += p.vy;
+
+  if (p.x < 0) p.x = width;
+  if (p.x > width) p.x = 0;
+  if (p.y < 0) p.y = height;
+  if (p.y > height) p.y = 0;
+}
+
+function drawParticle(ctx, p) {
+  ctx.fillStyle = `rgba(249, 115, 22, ${p.opacity})`;
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+const PARTICLE_COUNT = 100;
 
 export default function FluidCanvas() {
   const canvasRef = useRef(null);
@@ -6,81 +36,66 @@ export default function FluidCanvas() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     let width, height;
     let particles = [];
-    const particleCount = 100;
     let animationFrameId;
+    let running = false;
 
     const resize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     };
 
-    class Particle {
-      constructor() {
-        this.init();
-      }
-      init() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 1.5;
-        this.vy = (Math.random() - 0.5) * 1.5;
-        this.size = Math.random() * 2 + 1;
-        this.opacity = Math.random() * 0.5;
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        
-        if (this.x < 0) this.x = width;
-        if (this.x > width) this.x = 0;
-        if (this.y < 0) this.y = height;
-        if (this.y > height) this.y = 0;
-      }
-      draw() {
-        // Orange color for Infrio Solutions
-        ctx.fillStyle = `rgba(249, 115, 22, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
     const setup = () => {
       resize();
       particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(createParticle(width, height));
       }
+      running = true;
       animate();
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
       particles.forEach(p => {
-        p.update();
-        p.draw();
+        updateParticle(p, width, height);
+        drawParticle(ctx, p);
       });
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    const stopAnimation = () => {
+      cancelAnimationFrame(animationFrameId);
+      running = false;
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopAnimation();
+      } else if (!running) {
+        running = true;
+        animate();
+      }
+    };
+
     window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
     setup();
 
     return () => {
       window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      stopAnimation();
     };
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
-      className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
     />
   );
 }
-
-

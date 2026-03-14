@@ -8,9 +8,4 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  server: {
-    allowedHosts: [
-      'nonmanifestly-zonular-ester.ngrok-free.dev'
-    ]
-  }
 })

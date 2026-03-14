@@ -1,9 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import CTAButton from '../components/CTAButton';
 
 export default function About() {
   return (
-    <div className="w-full pt-32 pb-24">
+    <div className="w-full pt-48 pb-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-24">
           <h1 className="font-display text-5xl md:text-7xl font-bold leading-none tracking-tighter mb-8 text-gradient uppercase">
@@ -55,9 +54,7 @@ export default function About() {
 
         <div className="text-center mt-32">
           <h2 className="font-display text-3xl md:text-5xl font-bold uppercase mb-8">Ready to Transform?</h2>
-          <Link to="/contact" className="inline-block px-10 py-4 border border-kinetic text-kinetic uppercase tracking-[0.2em] text-xs font-bold hover:bg-kinetic hover:text-dark transition-all duration-500 rounded-full">
-            Partner With Us
-          </Link>
+          <CTAButton to="/contact">Partner With Us</CTAButton>
         </div>
       </div>
     </div>
