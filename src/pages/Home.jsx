@@ -112,7 +112,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-kinetic/5 opacity-30 pointer-events-none"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="font-display text-5xl md:text-7xl font-bold uppercase mb-12 tracking-tighter">
-            Get In <br/> <span className="text-kinetic italic">Touch</span>
+            Get In <br/> <span className="text-kinetic">Touch</span>
           </h2>
           <div className="mt-12">
             <CTAButton to="/contact">Contact Us</CTAButton>

@@ -19,7 +19,7 @@ export default function Navbar() {
       <Link to="/" className="relative z-10 block transform transition-transform hover:scale-105">
         <img 
           alt="Infrio Solutions Logo" 
-          className="h-[100px] w-auto object-contain drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" 
+          className="h-[115px] w-auto object-contain drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" 
           src="/logo.png" 
         />
       </Link>
